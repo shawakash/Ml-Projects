@@ -101,3 +101,8 @@ print(G)
 
 H = np.repeat(a,5, axis=0)
 print(H)
+
+
+# np.linalg.pinv  --- puedo inv
+
+print('Puedo Inv\n', np.linalg.pinv(a))

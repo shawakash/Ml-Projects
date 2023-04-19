@@ -55,7 +55,19 @@ print(a)
 # m = (xyMean - xMean*yMean)/(x2Mean - pow(xMean, 2))
 
 # y = np.transpose(y)
-weights = np.linalg.solve(a,y)
+
+
+# np.linalg.pinv  --- puedo inv
+
+# weights = np.linalg.solve(a,y)
+
+# Checkout gradient decent algorithm
+# Compute weights = inv(xTx) * xT * y
+# Normal Equation algorithm
+
+aTranspose = np.transpose(a)
+pusedoInv = np.linalg.pinv(np.dot(aTranspose, a))
+weights = np.dot(pusedoInv, np.dot(aTranspose, y))
 print("Weigths : ", weights)
 
 
