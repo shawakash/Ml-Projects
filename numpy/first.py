@@ -1,3 +1,4 @@
+from cmath import sin
 import numpy as np
 
 ## To  get implement an array
@@ -106,3 +107,87 @@ print(H)
 # np.linalg.pinv  --- puedo inv
 
 print('Puedo Inv\n', np.linalg.pinv(a))
+
+# To print a random matrice with some patttern
+
+output = np.ones((5,5))
+inside = np.zeros((3,3))
+inside[1][1] = 9
+output[1:4, 1:4] = inside
+
+print(output)
+
+# Be carefull while copying
+
+a = np.array([1,2,3])
+b = a
+print('a', a)
+print('b', b)
+
+b[0] = 100
+
+print("after changing b", b)
+print("not changing a", a)
+
+# use a.copy() to create duplicate
+
+c = a.copy()
+
+c[1] = 10
+print("After changing c", c)
+print("After changing c, a", a)
+
+# Using math lib of numpy
+
+z = np.array([1,2,3])
+v = np.sin(z)
+print(v)
+
+# np.dot(a,b)  -> to do matrice vector and matrice matrice multiplication
+# np.matmul(a,b)  -> to do matrice vector and matrice matrice multiplication
+
+a = np.ones((2,3))
+b = np.full((3,2), 10)
+
+print(np.matmul(a,b))
+print(np.dot(a,b))
+
+# det
+a = np.array([[1,0,0], [0,32,0], [0,0,65]])
+print(np.linalg.det(a))
+
+
+# eigen values and vectors
+
+la, e = np.linalg.eig(a)
+print(la)
+print(e)
+
+# inverse
+
+print(np.linalg.inv(a))
+print(np.linalg.pinv(a))      # psuedo inverse
+
+# matrice reshape
+
+print(a.reshape((9,1)))
+
+#  stacking vectors
+
+a = np.array([1,2,3])
+b = np.array([1,2,3])
+c = np.array([1,2,3])
+
+# vertical stacking
+
+print(np.vstack((a,b,c)))
+
+# horizontal stacking
+
+print(np.hstack((a,a,b,b)))
+
+#  generate data from file
+
+# fileData = np.genfromtxt('', dtype='int32', delimiter=',')
+# np.genfromtxt()
+# print(fileData)
